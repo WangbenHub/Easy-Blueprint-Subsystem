@@ -123,7 +123,7 @@
 
 **On Deinitialize** 里应做与 **On Initialize** 相反的清理解绑；不要在这里再启动新逻辑。
 
-### Tick（仅 Engine / Game Instance / World）
+### Tick（仅 Game Instance / World）
 
 1. 打开子系统蓝图 → **类默认值**。  
 2. **Tick** 分类：  
@@ -132,7 +132,7 @@
    - **Tick Even When Paused**：游戏暂停时是否仍 Tick。  
 3. 在 Event Graph 添加 **Tick** 事件写逻辑。  
 
-**Editor** 子系统没有 Tick；编辑器里要「监听变化」请用下一节的 **Editor Events**。
+**Engine** 与 **Editor** 子系统均不提供 Tick（Engine 为全局单例且无稳定每帧 World；Editor 请用下一节 **Editor Events**）。
 
 Tick 一般在 **PIE / 运行游戏** 时才有意义；只开编辑器不播放时，Game Instance / World 通常还不会 Tick。
 

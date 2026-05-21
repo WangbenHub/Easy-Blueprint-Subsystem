@@ -121,7 +121,7 @@ In the **subsystem Blueprint’s** Event Graph:
 
 Use **On Deinitialize** to undo what **On Initialize** set up; do not start new gameplay logic there.
 
-### Tick (Engine / Game Instance / World only)
+### Tick (Game Instance / World only)
 
 1. Open subsystem Blueprint → **Class Defaults**.  
 2. **Tick**:  
@@ -130,7 +130,7 @@ Use **On Deinitialize** to undo what **On Initialize** set up; do not start new 
    - **Tick Even When Paused** — tick while game is paused.  
 3. Implement the **Tick** event in Event Graph.
 
-**Editor** subsystems have no Tick; use **Editor Events** below for editor-side reactions.
+**Engine** and **Editor** subsystems have no Tick (Engine is a global singleton without a stable per-frame world; Editor uses **Editor Events** below).
 
 Tick is meaningful during **PIE / game**; Game Instance / World usually do not tick while only editing without play.
 
